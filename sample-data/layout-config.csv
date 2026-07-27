@@ -1,0 +1,19 @@
+# TSYS EDC (POS 5.3) record layout - SAMPLE / PLACEHOLDER
+# Replace keyStart/keyLength/ignoreZones once the real file structure is confirmed
+# (not read from a photo). The comparison engine does not need to change when
+# you update this file.
+#
+# Columns: recordType,recordTypeName,keyStart,keyLength,ignoreZones
+#   keyStart,keyLength : 1-based position/length of this record's unique key
+#                         (e.g. the RRN). Use 0,0 if this type has no natural
+#                         key (matched by occurrence order instead - suitable
+#                         for singleton records like a Batch/File Header or
+#                         Batch/File Trailer).
+#   ignoreZones         : "start:length" pairs separated by "|", e.g. "3:4"
+#                          or "3:4|50:2". Leave blank if nothing to ignore.
+recordType,recordTypeName,keyStart,keyLength,ignoreZones
+FH,File Header,0,0,
+BH,Batch Header,0,0,3:4
+TXV,Transaction Detail,122,12,
+BT,Batch Trailer,0,0,
+FT,File Trailer,0,0,
